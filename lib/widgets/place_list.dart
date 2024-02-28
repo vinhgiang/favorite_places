@@ -1,4 +1,5 @@
 import 'package:favorite_places/models/place.dart';
+import 'package:favorite_places/screens/place_detail.dart';
 import 'package:flutter/material.dart';
 
 class PlaceList extends StatelessWidget {
@@ -25,12 +26,23 @@ class PlaceList extends StatelessWidget {
         itemCount: places.length,
         itemBuilder: (ctx, index) {
           return ListTile(
+            leading: CircleAvatar(
+              radius: 26,
+              backgroundImage: FileImage(places[index].image),
+            ),
             title: Text(
               places[index].name,
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: Theme.of(context).colorScheme.onBackground,
                   ),
             ),
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => PlaceDetail(place: places[index]),
+                ),
+              );
+            },
           );
         },
       );
