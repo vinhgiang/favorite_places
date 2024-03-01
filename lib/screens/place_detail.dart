@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../env/env.dart';
 import '../models/place.dart';
 
 class PlaceDetail extends StatelessWidget {
   final Place place;
-  final apiKey = '{YOUR_GOOGLE_MAPS_API_KEY}';
+  final apiKey = Env.GOOGLE_MAPS_API_KEY;
 
-  const PlaceDetail({super.key, required this.place});
+  PlaceDetail({super.key, required this.place});
 
   String _getLocationImage() {
     final lat = place.location.latitude;

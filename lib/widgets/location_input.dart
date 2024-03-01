@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:favorite_places/env/env.dart';
 import 'package:favorite_places/models/place.dart';
 import 'package:flutter/material.dart';
 import 'package:location/location.dart';
@@ -20,7 +21,7 @@ class LocationInput extends StatefulWidget {
 }
 
 class _LocationInputState extends State<LocationInput> {
-  final apiKey = '{YOUR_GOOGLE_MAPS_API_KEY}';
+  final apiKey = Env.GOOGLE_MAPS_API_KEY;
 
   PlaceLocation? _pickedLocation;
   bool _isGettingLocation = false;
